@@ -160,23 +160,58 @@ const AdminApp = {
     
     parseExamsCSV(csv) {
         const lines = csv.trim().split('\n');
-        if (lines.length < 2) return [];
+        if (lines.length === 0) return [];
+        
+        // Check if the first line starts with a date pattern like D/M/YYYY or YYYY-MM-DD
+        const hasHeader = !/^\d+[\/\-]\d+[\/\-]\d+/.test(lines[0].trim());
+        const startIndex = hasHeader ? 1 : 0;
         
         const exams = [];
-        for (let i = 1; i < lines.length; i++) {
+        for (let i = startIndex; i < lines.length; i++) {
             const values = lines[i].split(',').map(v => v.trim());
             if (values.length < 3) continue;
             exams.push({
-                semester: values[0],
-                date: values[1],
+                date: values[0],
+                semester: values[1],
                 exam: values[2]
             });
         }
         return exams;
     },
     
+    parseCSVDate(dateStr) {
+        const parts = dateStr.split('/');
+        if (parts.length === 3) {
+            const day = parseInt(parts[0], 10);
+            const month = parseInt(parts[1], 10) - 1;
+            const year = parseInt(parts[2], 10);
+            return new Date(year, month, day);
+        }
+        return new Date(dateStr);
+    },
+
+    parseYYYYMMDD(dateStr) {
+        const parts = dateStr.split('-');
+        if (parts.length === 3) {
+            const year = parseInt(parts[0], 10);
+            const month = parseInt(parts[1], 10) - 1;
+            const day = parseInt(parts[2], 10);
+            return new Date(year, month, day);
+        }
+        return new Date(dateStr);
+    },
+
+    compareDates(d1, d2) {
+        const date1 = this.parseCSVDate(d1);
+        const date2 = this.parseYYYYMMDD(d2);
+        return date1.getFullYear() === date2.getFullYear() &&
+               date1.getMonth() === date2.getMonth() &&
+               date1.getDate() === date2.getDate();
+    },
+    
     getExamForSemester(semester) {
-        const exam = this.examsData.find(e => e.semester === semester);
+        const currentDate = this.getCurrentDate();
+        const exam = this.examsData.find(e => e.semester === semester && this.compareDates(e.date, currentDate));
         return exam ? exam.exam : 'upcoming';
     },
     

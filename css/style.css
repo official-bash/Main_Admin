@@ -611,28 +611,101 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .top-bar {
-        padding: 10px 12px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 
+            "logo settings"
+            "search search";
+        gap: 12px;
+        padding: 12px 16px;
     }
-    .bash-title {
-        font-size: 18px;
+    .logo-section {
+        grid-area: logo;
+        display: flex;
+        align-items: center;
     }
     .settings-btn {
-        width: 34px;
-        height: 34px;
-        font-size: 16px;
+        grid-area: settings;
+        justify-self: end;
+        width: 38px;
+        height: 38px;
+    }
+    .search-section {
+        grid-area: search;
+        max-width: 100%;
+    }
+    body {
+        padding-top: 155px;
+    }
+    .filter-container {
+        margin-top: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-bar {
+        padding: 10px 14px;
+        gap: 10px;
+    }
+    .bash-title {
+        font-size: 19px;
+    }
+    .settings-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+    body {
+        padding-top: 145px;
+        padding-bottom: 85px;
     }
     .card-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
     }
     .user-card {
         flex-direction: column;
         align-items: flex-start;
+        padding: 14px;
+        gap: 10px;
+    }
+    .user-info {
+        width: 100%;
     }
     .user-actions {
         width: 100%;
         justify-content: space-between;
+        border-top: 1px solid var(--light-gray);
+        padding-top: 8px;
+    }
+    .send-btn {
+        padding: 10px 18px; /* Improved touch target size */
+        font-size: 14px;
+    }
+    .modal-content {
+        width: 94%;
+        max-height: 85vh;
+    }
+    .modal-body {
+        padding: 16px;
+    }
+    .link-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 12px;
+    }
+    .link-item div {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .link-item a, .link-item .copy-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+        text-align: center;
     }
 }
 
