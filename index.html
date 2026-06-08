@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASH Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <div class="logo-section">
+            <h1 class="bash-title">BASH<span class="admin-badge">ADMIN</span></h1>
+        </div>
+        <div class="search-section">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search users..." class="search-input">
+                <button class="search-btn" onclick="AdminApp.handleSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="filter-container" id="filterContainer"></div>
+        </div>
+        <button class="settings-btn" onclick="AdminApp.openSettings()" title="Settings">
+            <i class="fas fa-cog"></i>
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent"></main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#semesters" class="nav-item active" data-page="semesters">
+            <i class="fas fa-layer-group"></i>
+            <span>Semesters</span>
+        </a>
+        <a href="#messages" class="nav-item" data-page="messages">
+            <i class="fas fa-comment-dots"></i>
+            <span>Messages</span>
+        </a>
+        <a href="#stats" class="nav-item" data-page="stats">
+            <i class="fas fa-chart-bar"></i>
+            <span>Stats</span>
+        </a>
+    </nav>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button class="modal-close" onclick="AdminApp.closeSettings()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="settingsContent"></div>
+        </div>
+    </div>
+
+    <!-- Send to All Modal -->
+    <div class="modal-overlay" id="sendAllModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-paper-plane"></i> Send to All</h2>
+                <button class="modal-close" onclick="AdminApp.closeSendAll()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="sendAllContent"></div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/semester.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/setting.js"></script>
+</body>
+</html>
