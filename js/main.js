@@ -131,7 +131,7 @@ const AdminApp = {
             
             users.push({
                 timestamp: values[0],
-                email: values[1],
+                email: values[1] || values[2] || 'No Email',
                 officialEmail: values[2],
                 otherEmail: values[3],
                 whatsapp: values[4].replace(/[^0-9+]/g, ''),
