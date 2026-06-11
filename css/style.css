@@ -598,6 +598,213 @@ body {
     border-bottom: none;
 }
 
+/* Control Hub Styles */
+.control-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 10px;
+}
+
+.card-header-flex h3 {
+    color: var(--bash-navy);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.badge-source {
+    background: var(--bash-navy);
+    color: white;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.connection-settings {
+    border-left: 4px solid var(--bash-orange);
+}
+
+.setup-steps {
+    padding-left: 20px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.setup-steps li {
+    margin-bottom: 8px;
+    color: var(--dark-gray);
+}
+
+.code-container {
+    position: relative;
+    background: #272822;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 8px;
+}
+
+.code-container pre {
+    margin: 0;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    color: #f8f8f2;
+    padding-bottom: 40px; /* spacing for button */
+}
+
+.copy-code-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    background: var(--bash-green);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s;
+}
+
+.copy-code-btn:hover {
+    background: #236B43;
+}
+
+.instruction-card {
+    border-left: 4px solid var(--bash-green);
+}
+
+/* Control Tabs */
+.control-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.control-tab-btn {
+    flex: 1;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bash-navy);
+    background: white;
+    border: 2px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.control-tab-btn:hover {
+    border-color: var(--bash-green);
+    color: var(--bash-green);
+}
+
+.control-tab-btn.active {
+    background: var(--bash-green);
+    color: white;
+    border-color: var(--bash-green);
+}
+
+/* Notifications Table */
+.notifications-table-container {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.notifications-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.notifications-table th, .notifications-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.notifications-table th {
+    background: var(--light-gray);
+    font-weight: 600;
+    color: var(--bash-navy);
+}
+
+.notifications-table tr:hover td {
+    background: #fafafa;
+}
+
+.text-truncate {
+    display: block;
+    max-width: 260px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Action Buttons inside Table */
+.action-edit-btn, .action-delete-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.action-edit-btn {
+    background: #E3F2FD;
+    color: var(--male-text);
+}
+
+.action-edit-btn:hover {
+    background: #BBDEFB;
+}
+
+.action-delete-btn {
+    background: #FFEBEE;
+    color: var(--female-text);
+}
+
+.action-delete-btn:hover {
+    background: #FFCDD2;
+}
+
+.action-edit-btn:disabled, .action-delete-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 /* Responsive */
 @media (min-width: 768px) {
     .main-content {

@@ -42,6 +42,7 @@ const AdminApp = {
                 case 'semesters': this.renderSemestersPage(); break;
                 case 'messages': this.renderMessagesPage(); break;
                 case 'stats': this.renderStatsPage(); break;
+                case 'control': this.renderControlPage(); break;
             }
         }, 200);
     },

@@ -2,7 +2,9 @@ const ADMIN_CONFIG = {
     // Google Sheets Published CSV URLs
     SHEETS: {
         USERS: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSvot6xMc3FvT6zeO1LGOTb48fXUXc54Xm1kOszCh00KYl2RNzGNJr6s-HS8oTm3qFvinb0pjQbpNLT/pub?gid=173282646&single=true&output=csv',  // Users sheet CSV URL
-        EXAMS: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQAKxuUcidPiW_Tj1HtGySIKmlbm86N4Eh_qDw7QhsvDzJ-aAHSysjPZcmPJwGYpFrvKglKFb_5TK_L/pub?gid=1731624938&single=true&output=csv'   // Exams sheet CSV URL (semester, date, exam)
+        EXAMS: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQAKxuUcidPiW_Tj1HtGySIKmlbm86N4Eh_qDw7QhsvDzJ-aAHSysjPZcmPJwGYpFrvKglKFb_5TK_L/pub?gid=1731624938&single=true&output=csv',   // Exams sheet CSV URL (semester, date, exam)
+        CONTROLS: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSvot6xMc3FvT6zeO1LGOTb48fXUXc54Xm1kOszCh00KYl2RNzGNJr6s-HS8oTm3qFvinb0pjQbpNLT/pub?gid=1014028119&single=true&output=csv', // Control particulars
+        NOTIFICATIONS: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQAKxuUcidPiW_Tj1HtGySIKmlbm86N4Eh_qDw7QhsvDzJ-aAHSysjPZcmPJwGYpFrvKglKFb_5TK_L/pub?gid=0&single=true&output=csv' // Notifications Control System
     },
     
     // WhatsApp Settings
@@ -10,11 +12,11 @@ const ADMIN_CONFIG = {
     
     // Default Message Template
     DEFAULT_TEMPLATE: `Hi!
-
+ 
 Hope you're doing well.
-
+ 
 I hope the BASH Resource Hub is helping you with your exam preparation.
-
+ 
 Could you please share the current {exam} exam paper? I'll upload it to the BASH Resource Hub to help students next semester.`,
     
     // Send to All Method: 'manual' or 'auto'
@@ -30,6 +32,8 @@ Could you please share the current {exam} exam paper? I'll upload it to the BASH
         TEMPLATE: 'bash_admin_template',
         CUSTOM_DATE: 'bash_admin_custom_date',
         USE_CURRENT_DATE: 'bash_admin_use_current_date',
-        SEND_METHOD: 'bash_admin_send_method'
+        SEND_METHOD: 'bash_admin_send_method',
+        GENDER_API_URL: 'bash_admin_gender_api_url',
+        NOTIF_API_URL: 'bash_admin_notif_api_url'
     }
 };
